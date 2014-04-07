@@ -1,46 +1,35 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
 
-import time, os
-import Tkinter as tk
+import Tkinter
 import Graphic
-
-#VARIABLES ***************************
-
+import time
 
 
-
-def set (valor) :
-	alarma1 = valor
+#Creacion de Ventana Principal
 
 
-#************Ventana Principal *****************
-def ventana_0 ():	
-	v0=tk.Tk()
-	v0.config(bg = "black")
-	v0.title('Alarmas del Transformador')
-	v0.geometry('700x500+290+150')
+presionado = 0
+	
 
-	#### #AGREGAR COMADO#### 
-	b1 = tk.Button(v0, text="Agrear Alarma", command=lambda : Graphic.Mostrar_Ventana(v0))
-	b1.pack()
-	v0.mainloop()
+	
 
-#*********VENTANA DE ALARMA *********************
+def presionar():
+	presionado = 1
 
+def wait_write(ventana):
+	alarma = Graphic.labeles()
+	print (presionado)
+	while presionado == 0:
+		print ("Waiting for the Button")
+		time.sleep(10)
 
-
-#************************************************
-
-
-
+	alarma.set_name()
+	alarma.creation(ventana)
+	alarma.mostrar_en_pantalla()
 
 
-
-
-
-print ("Programa Terminado")
-
-
-
+def get_texto():
+	texto = campo_de_texto.get()
+	return (texto)
 
