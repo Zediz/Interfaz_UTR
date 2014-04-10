@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 from Tkinter import *
 
-
-
 class cambio_alarmas(Frame):
 
 	def __init__(self, master):
@@ -32,15 +30,12 @@ class cambio_alarmas(Frame):
 		self.entrythingy = Entry(self,width=24)
 		self.entrythingy.place(x=1, y=140)
 
-		#self.boton = Button() #self, text="Aceptar", bg = "black" ,command = self.imprimir_texto
-		#self.boton.place(x=210,y=140)
-
 		self.contenido = StringVar()
 		self.entrythingy.config(textvariable = self.contenido)
 
 
 
-	def num_lista(self):
+	def num_lista(self): # Metodo que entrega el numero de la alarma que esta seleccionada en la lista
 		
 		num = self.lista.curselection()
 		num2 = num[0]
@@ -48,12 +43,12 @@ class cambio_alarmas(Frame):
 		return num2
 	
 
-	def gettext (self):
+	def gettext (self): # Metodo que adquiere el texto que esta en el campo de texto y lo entrega.
 		texto = self.contenido.get()
 		print ("Esto es lo que se escribio en el cuadro ----- > " + texto)
 		return (texto)
 		
-	def vaciar (self):
+	def vaciar (self): # Metodo que vacia el campo de texto despues de oprimir el boton
 		self.entrythingy.delete (0, END )	
 
 """v0 = Tk()

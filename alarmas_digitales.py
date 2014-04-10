@@ -145,17 +145,3 @@ thread.start_new_thread(ola.checando, ())
 
 v0.mainloop()
 #****************************************"""
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -29,7 +29,7 @@ class alarmas_analogas(Frame):
 	
 
 
-	def checando_analog(self):
+	def checando_analog(self): # Metodo que checa los archivos adc para ver los valores que estos tienen
 		global lock
 
 		ADC_PATH = os.path.normpath('/proc/')
@@ -40,28 +40,28 @@ class alarmas_analogas(Frame):
 		x=0
 		punto = 0
 
-		for i in range(0,6):
+		for i in range(0,6): # Guardamos las direcciones de los archivos en un arreglo
 		    adcFiles.append(os.path.join(ADC_PATH, ADC_FILENAME+ str(i)))
 		
-		while True:
+		while True: # El bucle que se ejecuta para que continuamente se esten revisando el contenido de los archivos
 			lock.acquire()
 			print("Se esta ejecutando el While Analogas")
-			time.sleep(.3) #.3
-			for file in adcFiles:
+			time.sleep(.3)  # El tiempo entre revision y revision
+			for file in adcFiles: #Este abre los 6 archivos de los pines
 
-				fd = open(file,'r')
-				fd.seek(4)
-				valor = fd.read()
+				fd = open(file,'r') # se abre el archivo
+				fd.seek(5) # Se situa en el character 5 del archivo
+				valor = fd.read() # de ahi en adelante lee el valor
 				
 				if conta == 3:
-					self.voltaje.config(text=valor+" V")
+					self.voltaje.config(text=valor+" V") # si esta en el pin 3 asigna el valor en la alarma analoga 1
 					
-				elif conta ==4:
+				elif conta ==4: # si esta en el pin 4 asigna el valor a la label de la alarma analoga 2
 					self.corriente.config(text=valor+" mA")
 					
-				conta += 1
-				fd.close()
-			conta = 0
+				conta += 1 # aumenta conta para saber en que momento entra en el pin 3  y 4
+				fd.close() # Cierra el archivo cada vez que se termina de leer
+			conta = 0 # la variable conta la ponemos en 0 nuevamente apra que empiece a contar de nuevo
 			lock.release()
 
 		
