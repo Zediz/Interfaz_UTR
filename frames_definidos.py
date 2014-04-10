@@ -5,7 +5,6 @@ from Tkinter import *
 import thread
 import cambio_alarmas
 import alarmas_digitales
-import instrucciones
 import alarmas_analogas
 
 
