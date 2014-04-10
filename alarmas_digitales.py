@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*
 
 from Tkinter import *
-
+import time, os
+import thread
 
 class alarmas_digitales(Frame):
 	def __init__(self, master):
@@ -45,7 +46,7 @@ class alarmas_digitales(Frame):
 		foco5 = Label (self, text ="          ", fg = "green", bg = "red")
 		foco5.place(x= 340, y= 212)
 
-	def cambio (self,texto, num):
+	def cambio (self,texto, num): # Cambio del nombre de la alarma 
 
 		if num == 1:
 			alarma1= Label (self, text =texto, fg = "green", bg = "black")
@@ -62,5 +63,99 @@ class alarmas_digitales(Frame):
 		elif num == 5:
 			alarma5 = Label (self, text =texto, fg = "green", bg = "black")
 			alarma5.place(x= 15, y= 210)
+
+	def checando(self):
+		GPIO_MODE_PATH = os.path.normpath('/sys/devices/virtual/misc/gpio/mode/')
+		GPIO_PIN_PATH = os.path.normpath('/sys/devices/virtual/misc/gpio/pin/')
+		GPIO_FILENAME = "gpio"
+
+		HIGH = "1"
+		LOW ="0"
+		INPUT = "0"
+		OUTPUT = "1"
+		INPUT_PU = "8"
+
+		pinMode = []
+		pinData = []
+
+		for i in range(0,5):
+			pinMode.append(os.path.join(GPIO_MODE_PATH, 'gpio' + str(i)))
+			pinData.append(os.path.join(GPIO_PIN_PATH, 'gpio'+ str(i)))
+
+		for pin in range (0,5):
+			file = open(pinMode[pin], 'r+')
+			file.write(INPUT_PU)
+			file.close
+
+		while True:
+			print("Se esta ejecutando el While")
+			time.sleep(3)
+			for pin in range (0,5):
+				print ("Estoy checando el gpio" + str(pin))
+				file = open(pinData[pin], 'r')
+				if int(file.read()) == 1:
+					self.set_color_red(pin)
+				else:
+					self.set_color_green(pin)
+				file.close()
+
+
+	def set_color_red(self, num):
+		if num == 0:
+			self.foco1 = Label (self, text ="          ",  bg = "red")
+			self.foco1.place(x= 340, y= 52)
+		elif num == 1:
+			self.foco2 = Label (self, text ="          ",  bg = "red")
+			self.foco2.place(x= 340, y= 92)
+		elif num == 2:
+			self.foco3 = Label (self, text ="          ",  bg = "red")
+			self.foco3.place(x= 340, y= 132)	
+		elif num == 3:
+			self.foco4 = Label (self, text ="          ",  bg = "red")
+			self.foco4.place(x= 340, y= 172)
+		elif num == 4:
+			self.foco5 = Label (self, text ="          ",  bg = "red")
+			self.foco5.place(x= 340, y= 212)
+
+	def set_color_green(self, num):
+		if num == 0:
+			self.foco1 = Label (self, text ="          ",  bg = "green")
+			self.foco1.place(x= 340, y= 52)
+		elif num == 1:
+			self.foco2 = Label (self, text ="          ",  bg = "green")
+			self.foco2.place(x= 340, y= 92)
+		elif num == 2:
+			self.foco3 = Label (self, text ="          ",  bg = "green")
+			self.foco3.place(x= 340, y= 132)	
+		elif num == 3:
+			self.foco4 = Label (self, text ="          ",  bg = "green")
+			self.foco4.place(x= 340, y= 172)
+		elif num == 4:
+			self.foco5 = Label (self, text ="          ",  bg = "green")
+			self.foco5.place(x= 340, y= 212)
+"""v0 = Tk()
+v0.config(bg = "white")
+v0.title('Alarmas del Transformador')
+v0.geometry('700x500+290+150')
+
+ola = alarmas_digitales(v0)
+
+thread.start_new_thread(ola.checando, ())
+
+
+v0.mainloop()
+#****************************************"""
+
+
+
+
+
+
+
+
+
+
+
+
 
 
