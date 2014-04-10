@@ -20,10 +20,10 @@ class alarmas_analogas(Frame):
 		analog2 = Label (self, text =" Alarma Analoga 2", fg = "green", bg = "black")
 		analog2.place(x= 15, y= 60)
 
-		self.voltaje = Label(self,text="10 v")
+		self.voltaje = Label(self,text="100000 v")
 		self.voltaje.place(x=200, y=30)
 
-		self.corriente= Label(self,text="10 mA")
+		self.corriente= Label(self,text="10000000 mA")
 		self.corriente.place(x=200, y=60)
 
 	
@@ -50,15 +50,15 @@ class alarmas_analogas(Frame):
 			for file in adcFiles:
 
 				fd = open(file,'r')
-				fd.seek(0)
+				fd.seek(5)
 				valor = fd.read()
 				
 				if conta == 3:
-					self.voltaje = Label(self,text=valor+" V")
-					self.voltaje.place(x=200, y=30)
+					self.voltaje.config(text=valor+" V")
+					
 				elif conta ==4:
-					self.corriente = Label(self, text=valor+" mA")
-					self.corriente.place(x=200, y=60)
+					self.corriente.config(text=valor+" mA")
+					
 				conta += 1
 				fd.close()
 			conta = 0

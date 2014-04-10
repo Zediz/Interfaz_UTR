@@ -32,7 +32,7 @@ pines =Frame(height = 260, width= 297, bg="black")
 pines.place(x = 402, y = 172)
 #***************************************************************
 
-boton = Button(change, text="Aceptar", bg = "black" ,command = lambda : cambio_de_ala() )
+boton = Button(change, text="Aceptar" ,command = lambda : cambio_de_ala() )
 boton.place(x=210,y=140)
 
 thread.start_new_thread(digi.checando, ())

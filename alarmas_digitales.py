@@ -15,16 +15,16 @@ class alarmas_digitales(Frame):
 		titulo = Label (self,text= "Alarmas Digitales", fg ="green", bg= "black")
 		titulo.place(x= 130, y= 1)
 
-		alarma1 = Label (self, text =" Alarma 1", fg = "green", bg = "black")
-		#alarma1.place(x= 15, y= 50)
-		alarma2 = Label (self, text =" Alarma 2", fg = "green", bg = "black")
-		alarma2.place(x= 15, y= 90)
-		alarma3 = Label (self, text =" Alarma 3", fg = "green", bg = "black")
-		alarma3.place(x= 15, y= 130)
-		alarma4 = Label (self, text =" Alarma 4", fg = "green", bg = "black")
-		alarma4.place(x= 15, y= 170)
-		alarma5 = Label (self, text =" Alarma 5", fg = "green", bg = "black")
-		alarma5.place(x= 15, y= 210)
+		self.alarma1 = Label (self, text =" Alarma 1", fg = "green", bg = "black")
+		self.alarma1.place(x= 15, y= 50)
+		self.alarma2 = Label (self, text =" Alarma 2", fg = "green", bg = "black")
+		self.alarma2.place(x= 15, y= 90)
+		self.alarma3 = Label (self, text =" Alarma 3", fg = "green", bg = "black")
+		self.alarma3.place(x= 15, y= 130)
+		self.alarma4 = Label (self, text =" Alarma 4", fg = "green", bg = "black")
+		self.alarma4.place(x= 15, y= 170)
+		self.alarma5 = Label (self, text =" Alarma 5", fg = "green", bg = "black")
+		self.alarma5.place(x= 15, y= 210)
 
 		flecha1 = Label (self, text =" >>>>", fg = "green", bg = "black")
 		flecha1.place(x= 280, y= 50)
@@ -37,16 +37,16 @@ class alarmas_digitales(Frame):
 		flecha5 = Label (self, text =" >>>>", fg = "green", bg = "black")
 		flecha5.place(x= 280, y= 210)
 
-		foco1 = Label (self, text ="          ", fg = "green", bg = "red")
-		foco1.place(x= 340, y= 52)
-		foco2 = Label (self, text ="          ", fg = "green", bg = "red")
-		foco2.place(x= 340, y= 92)
-		foco3 = Label (self, text ="          ", fg = "green", bg = "red")
-		foco3.place(x= 340, y= 132)
-		foco4 = Label (self, text ="          ", fg = "green", bg = "red")
-		foco4.place(x= 340, y= 172)
-		foco5 = Label (self, text ="          ", fg = "green", bg = "red")
-		foco5.place(x= 340, y= 212)
+		self.foco1 = Label (self, text ="          ", fg = "green", bg = "red")
+		self.foco1.place(x= 340, y= 52)
+		self.foco2 = Label (self, text ="          ", fg = "green", bg = "red")
+		self.foco2.place(x= 340, y= 92)
+		self.foco3 = Label (self, text ="          ", fg = "green", bg = "red")
+		self.foco3.place(x= 340, y= 132)
+		self.foco4 = Label (self, text ="          ", fg = "green", bg = "red")
+		self.foco4.place(x= 340, y= 172)
+		self.foco5 = Label (self, text ="          ", fg = "green", bg = "red")
+		self.foco5.place(x= 340, y= 212)
 
 	#Aqui iba cambio del nombre de la alarma
 	def cambio (self,num,texto): # Cambio del nombre de la alarma 
@@ -56,22 +56,15 @@ class alarmas_digitales(Frame):
 			global alarma1
 
 			if num == 0:
-				self.alarma1= Label(self, text =texto, fg = "green", bg = "black")
-				self.alarma1.place(x= 15, y= 50)
-				print ("si entro al if de 0")
+				self.alarma1.config(text =texto)
 			elif num == 1:
-				self.alarma2 = Label (self, text =texto, fg = "green", bg = "black")
-				self.alarma2.place(x= 15, y= 90)
+				self.alarma2.config(text =texto)
 			elif num == 2:
-				self.alarma3 = Label (self, text =texto, fg = "green", bg = "black")
-				self.alarma3.place(x= 15, y= 130)	
+				self.alarma3.config(text =texto)	
 			elif num == 3:
-				self.alarma4 = Label (self, text =texto, fg = "green", bg = "black")
-				self.alarma4.place(x= 15, y= 170)
+				self.alarma4.config(text =texto)
 			elif num == 4:
-				self.alarma5 = Label (self, text =texto, fg = "green", bg = "black")
-				self.alarma5.place(x= 15, y= 210)
-
+				self.alarma5.config(text =texto)
 			
 
 
@@ -118,37 +111,28 @@ class alarmas_digitales(Frame):
 
 	def set_color_red(self, num):
 		if num == 0:
-			self.foco1 = Label (self, text ="          ",  bg = "red")
-			self.foco1.place(x= 340, y= 52)
+			self.foco1.config(bg = "red")
 		elif num == 1:
-			self.foco2 = Label (self, text ="          ",  bg = "red")
-			self.foco2.place(x= 340, y= 92)
+			self.foco2.config(bg = "red")
 		elif num == 2:
-			self.foco3 = Label (self, text ="          ",  bg = "red")
-			self.foco3.place(x= 340, y= 132)	
+			self.foco3.config(bg = "red")
 		elif num == 3:
-			self.foco4 = Label (self, text ="          ",  bg = "red")
-			self.foco4.place(x= 340, y= 172)
+			self.foco4.config(bg = "red")
 		elif num == 4:
-			self.foco5 = Label (self, text ="          ",  bg = "red")
-			self.foco5.place(x= 340, y= 212)
+			self.foco5.config(bg = "red")
+
 
 	def set_color_green(self, num):
 		if num == 0:
-			self.foco1 = Label (self, text ="          ",  bg = "green")
-			self.foco1.place(x= 340, y= 52)
+			self.foco1.config(bg = "green")
 		elif num == 1:
-			self.foco2 = Label (self, text ="          ",  bg = "green")
-			self.foco2.place(x= 340, y= 92)
+			self.foco2.config(bg = "green")
 		elif num == 2:
-			self.foco3 = Label (self, text ="          ",  bg = "green")
-			self.foco3.place(x= 340, y= 132)	
+			self.foco3.config(bg = "green")
 		elif num == 3:
-			self.foco4 = Label (self, text ="          ",  bg = "green")
-			self.foco4.place(x= 340, y= 172)
+			self.foco4.config(bg = "green")
 		elif num == 4:
-			self.foco5 = Label (self, text ="          ",  bg = "green")
-			self.foco5.place(x= 340, y= 212)
+			self.foco5.config(bg = "green")
 """v0 = Tk()
 v0.config(bg = "white")
 v0.title('Alarmas del Transformador')
