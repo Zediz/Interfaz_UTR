@@ -46,7 +46,7 @@ class alarmas_analogas(Frame):
 		while True:
 			lock.acquire()
 			print("Se esta ejecutando el While Analogas")
-			time.sleep(1) #.3
+			time.sleep(.3) #.3
 			for file in adcFiles:
 
 				fd = open(file,'r')

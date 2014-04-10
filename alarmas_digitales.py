@@ -96,7 +96,7 @@ class alarmas_digitales(Frame):
 
 		while True:
 			print("Se esta ejecutando el While digitales")
-			time.sleep(5) #.5
+			time.sleep(.55) #.5
 			for pin in range (0,5):
 				print ("Estoy checando el gpio" + str(pin))
 				file = open(pinData[pin], 'r')
