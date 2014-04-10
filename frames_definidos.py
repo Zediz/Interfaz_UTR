@@ -8,13 +8,14 @@ import alarmas_digitales
 import instrucciones
 import alarmas_analogas
 
+
 v0 = Tk()
 v0.config(bg = "white")
 v0.title('Alarmas del Transformador')
 v0.geometry('700x500+290+150')
-olas = alarmas_digitales.alarmas_digitales(v0)
+
+digi = alarmas_digitales.alarmas_digitales(v0)
 change = cambio_alarmas.cambio_alarmas(v0)
-instrucc = instrucciones.instrucciones(v0)
 analog = alarmas_analogas.alarmas_analogas(v0)
 
 
@@ -35,6 +36,7 @@ pines.place(x = 402, y = 172)
 #***************************************************************
 
 
-thread.start_new_thread(olas.checando, ())
+thread.start_new_thread(digi.checando, ())
+thread.start_new_thread(analog.checando_analog, ())
 
 v0.mainloop()

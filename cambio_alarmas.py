@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 from Tkinter import *
 
-"""v0 = Tk()
+v0 = Tk()
 v0.config(bg = "white")
 v0.title('Alarmas del Transformador')
-v0.geometry('700x500+290+150')"""
+v0.geometry('700x500+290+150')
 
 class cambio_alarmas(Frame):
 
@@ -56,8 +56,8 @@ class cambio_alarmas(Frame):
 		print (texto)
 		return texto
 
-"""ola = cambio_alarmas(v0)
+ola = cambio_alarmas(v0)
 ola.mainloop()
 
-v0.mainloop()"""
+v0.mainloop()
 

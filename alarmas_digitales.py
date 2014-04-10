@@ -5,6 +5,8 @@ from Tkinter import *
 import time, os
 import thread
 
+lock = thread.allocate_lock()
+
 class alarmas_digitales(Frame):
 	def __init__(self, master):
 		Frame.__init__(self, master,height=280, width=400 ,bg="black")
@@ -65,6 +67,8 @@ class alarmas_digitales(Frame):
 			alarma5.place(x= 15, y= 210)
 
 	def checando(self):
+		global lock 
+
 		GPIO_MODE_PATH = os.path.normpath('/sys/devices/virtual/misc/gpio/mode/')
 		GPIO_PIN_PATH = os.path.normpath('/sys/devices/virtual/misc/gpio/pin/')
 		GPIO_FILENAME = "gpio"
@@ -88,16 +92,18 @@ class alarmas_digitales(Frame):
 			file.close
 
 		while True:
-			print("Se esta ejecutando el While")
-			time.sleep(3)
+			print("Se esta ejecutando el While digitales")
+			time.sleep(.5)
 			for pin in range (0,5):
 				print ("Estoy checando el gpio" + str(pin))
 				file = open(pinData[pin], 'r')
+				lock.acquire()
 				if int(file.read()) == 1:
 					self.set_color_red(pin)
 				else:
 					self.set_color_green(pin)
 				file.close()
+				lock.release()
 
 
 	def set_color_red(self, num):
