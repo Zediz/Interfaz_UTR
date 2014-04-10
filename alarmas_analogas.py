@@ -26,11 +26,9 @@ class alarmas_analogas(Frame):
 		self.corriente= Label(self,text="10 mA")
 		self.corriente.place(x=200, y=60)
 
-		grafico = Canvas(self, width=320, height=115, bg="red"); # cria um objeto tipo canvas e define o tamanho do Canvas
-		grafico.place(x=40, y=90); # posiciona o canvas na janela pricipal
-		term_imagem = Canvas(self, width=300, height=150); # cria um objeto tipo canvas e define o tamanho do Canvas
-		term_imagem.place(x=30, y=315); # posiciona o canvas na janela pricipal
-		
+	
+
+
 	def checando_analog(self):
 		global lock
 
@@ -39,6 +37,8 @@ class alarmas_analogas(Frame):
 
 		adcFiles=[]
 		conta = 0
+		x=0
+		punto = 0
 
 		for i in range(0,6):
 		    adcFiles.append(os.path.join(ADC_PATH, ADC_FILENAME+ str(i)))
@@ -46,23 +46,21 @@ class alarmas_analogas(Frame):
 		while True:
 			lock.acquire()
 			print("Se esta ejecutando el While Analogas")
-			time.sleep(.3)
+			time.sleep(1) #.3
 			for file in adcFiles:
-			    
-			    fd = open(file,'r')
-			    fd.seek(0)
-			    valor = fd.read()
-			    
-			    
-			    if conta == 3:
+
+				fd = open(file,'r')
+				fd.seek(0)
+				valor = fd.read()
+				
+				if conta == 3:
 					self.voltaje = Label(self,text=valor+" V")
 					self.voltaje.place(x=200, y=30)
-			    elif conta ==4:
-			    	self.corriente = Label(self, text=valor+" mA")
-			    	self.corriente.place(x=200, y=60)
-			    	
-			    conta += 1 
-			    fd.close()
+				elif conta ==4:
+					self.corriente = Label(self, text=valor+" mA")
+					self.corriente.place(x=200, y=60)
+				conta += 1
+				fd.close()
 			conta = 0
 			lock.release()
 
@@ -73,6 +71,7 @@ v0.title('Alarmas del Transformador')
 v0.geometry('700x500+290+150')
 
 ola = alarmas_analogas(v0)
+
 
 thread.start_new_thread(ola.checando_analog, ())
 

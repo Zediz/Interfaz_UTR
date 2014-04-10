@@ -16,7 +16,7 @@ class alarmas_digitales(Frame):
 		titulo.place(x= 130, y= 1)
 
 		alarma1 = Label (self, text =" Alarma 1", fg = "green", bg = "black")
-		alarma1.place(x= 15, y= 50)
+		#alarma1.place(x= 15, y= 50)
 		alarma2 = Label (self, text =" Alarma 2", fg = "green", bg = "black")
 		alarma2.place(x= 15, y= 90)
 		alarma3 = Label (self, text =" Alarma 3", fg = "green", bg = "black")
@@ -48,23 +48,33 @@ class alarmas_digitales(Frame):
 		foco5 = Label (self, text ="          ", fg = "green", bg = "red")
 		foco5.place(x= 340, y= 212)
 
-	def cambio (self,texto, num): # Cambio del nombre de la alarma 
+	#Aqui iba cambio del nombre de la alarma
+	def cambio (self,num,texto): # Cambio del nombre de la alarma 
+			
+			print ("Si tiene el valor " + str(num))
+			print ("Si tiene el valor " + texto)
+			global alarma1
 
-		if num == 1:
-			alarma1= Label (self, text =texto, fg = "green", bg = "black")
-			alarma1.place(x= 15, y= 50)
-		elif num == 2:
-			alarma2 = Label (self, text =texto, fg = "green", bg = "black")
-			alarma2.place(x= 15, y= 90)
-		elif num == 3:
-			alarma3 = Label (self, text =texto, fg = "green", bg = "black")
-			alarma3.place(x= 15, y= 130)	
-		elif num == 4:
-			alarma4 = Label (self, text =texto, fg = "green", bg = "black")
-			alarma4.place(x= 15, y= 170)
-		elif num == 5:
-			alarma5 = Label (self, text =texto, fg = "green", bg = "black")
-			alarma5.place(x= 15, y= 210)
+			if num == 0:
+				self.alarma1= Label(self, text =texto, fg = "green", bg = "black")
+				self.alarma1.place(x= 15, y= 50)
+				print ("si entro al if de 0")
+			elif num == 1:
+				self.alarma2 = Label (self, text =texto, fg = "green", bg = "black")
+				self.alarma2.place(x= 15, y= 90)
+			elif num == 2:
+				self.alarma3 = Label (self, text =texto, fg = "green", bg = "black")
+				self.alarma3.place(x= 15, y= 130)	
+			elif num == 3:
+				self.alarma4 = Label (self, text =texto, fg = "green", bg = "black")
+				self.alarma4.place(x= 15, y= 170)
+			elif num == 4:
+				self.alarma5 = Label (self, text =texto, fg = "green", bg = "black")
+				self.alarma5.place(x= 15, y= 210)
+
+			
+
+
 
 	def checando(self):
 		global lock 
@@ -93,7 +103,7 @@ class alarmas_digitales(Frame):
 
 		while True:
 			print("Se esta ejecutando el While digitales")
-			time.sleep(.5)
+			time.sleep(5) #.5
 			for pin in range (0,5):
 				print ("Estoy checando el gpio" + str(pin))
 				file = open(pinData[pin], 'r')

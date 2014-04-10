@@ -2,10 +2,7 @@
 # -*- coding: utf-8 -*-
 from Tkinter import *
 
-v0 = Tk()
-v0.config(bg = "white")
-v0.title('Alarmas del Transformador')
-v0.geometry('700x500+290+150')
+
 
 class cambio_alarmas(Frame):
 
@@ -29,12 +26,14 @@ class cambio_alarmas(Frame):
 		self.lista.insert(4, "  Alarma 4")
 		self.lista.insert(5, "  Alarma 5")
 		self.lista.place(x=210, y=30)
+		self.lista.select_set(0)
+		
 
 		self.entrythingy = Entry(self,width=24)
 		self.entrythingy.place(x=1, y=140)
 
-		self.boton = Button(self, text="Aceptar", bg = "black" ,command = self.imprimir_texto)
-		self.boton.place(x=210,y=140)
+		#self.boton = Button() #self, text="Aceptar", bg = "black" ,command = self.imprimir_texto
+		#self.boton.place(x=210,y=140)
 
 		self.contenido = StringVar()
 		self.entrythingy.config(textvariable = self.contenido)
@@ -42,22 +41,28 @@ class cambio_alarmas(Frame):
 
 
 	def num_lista(self):
-		num = self.lista.curselection()[0]
-		print (num)
-		return num
+		
+		num = self.lista.curselection()
+		num2 = num[0]
+		print (num2)
+		return num2
 	
-	def imprimir_texto (self):
 
-		"""print ("Esto es lo que se escribio en el cuadro ----- > " + self.contenido.get())
-		self.etiqueta = Label(master,text= self.contenido.get(), fg="green",bg = "black")
-		self.etiqueta.pack()"""
-
+	def gettext (self):
 		texto = self.contenido.get()
-		print (texto)
-		return texto
+		print ("Esto es lo que se escribio en el cuadro ----- > " + texto)
+		return (texto)
+		
+	def vaciar (self):
+		self.entrythingy.delete (0, END )	
 
+"""v0 = Tk()
+v0.config(bg = "white")
+v0.title('Alarmas del Transformador')
+v0.geometry('700x500+290+150')
 ola = cambio_alarmas(v0)
-ola.mainloop()
+
+
 
 v0.mainloop()
-
+#*********************"""

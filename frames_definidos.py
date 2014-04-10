@@ -18,23 +18,22 @@ digi = alarmas_digitales.alarmas_digitales(v0)
 change = cambio_alarmas.cambio_alarmas(v0)
 analog = alarmas_analogas.alarmas_analogas(v0)
 
+def cambio_de_ala ():
+	num = int(change.num_lista())
+	texto = change.gettext()
 
-# FRAME DE ALARMAS ANALOGAS *********************
-#***************************************************************
-
-#***************************************************************
+	digi.cambio(num,texto)
+	change.vaciar()
 
 
-"""def obtener():
-	olas.cambio(change.imprimir_texto(),change.num_lista())
-
-"""
 
 # FRAME DE LOS PINES *********************
 pines =Frame(height = 260, width= 297, bg="black")
 pines.place(x = 402, y = 172)
 #***************************************************************
 
+boton = Button(change, text="Aceptar", bg = "black" ,command = lambda : cambio_de_ala() )
+boton.place(x=210,y=140)
 
 thread.start_new_thread(digi.checando, ())
 thread.start_new_thread(analog.checando_analog, ())
