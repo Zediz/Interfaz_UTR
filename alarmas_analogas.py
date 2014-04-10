@@ -50,7 +50,7 @@ class alarmas_analogas(Frame):
 			for file in adcFiles:
 
 				fd = open(file,'r')
-				fd.seek(5)
+				fd.seek(4)
 				valor = fd.read()
 				
 				if conta == 3:
