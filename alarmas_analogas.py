@@ -9,7 +9,7 @@ lock = thread.allocate_lock()
 
 class alarmas_analogas(Frame):
 	def __init__(self, master):
-		Frame.__init__(self, master,height=217,width=400, bg="black")
+		Frame.__init__(self, master,height=116,width=400, bg="black")
 		self.place(x = 1 , y = 282)
 
 		title_analog = Label(self,text="Alarmas Analogas", fg ="green", bg = "black")

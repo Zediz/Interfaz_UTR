@@ -6,7 +6,7 @@ import thread
 import cambio_alarmas
 import alarmas_digitales
 import alarmas_analogas
-
+import control
 
 v0 = Tk()
 v0.config(bg = "white")
@@ -16,6 +16,7 @@ v0.geometry('700x500+290+150')
 digi = alarmas_digitales.alarmas_digitales(v0)
 change = cambio_alarmas.cambio_alarmas(v0)
 analog = alarmas_analogas.alarmas_analogas(v0)
+control = control.control(v0)
 
 def cambio_de_ala (): # Este es el metodo que se ejectua al presionar el boton para cambiar la alarma
 	num = int(change.num_lista()) # Aqui obtengo el valor de la alarma que esta seleccionada
