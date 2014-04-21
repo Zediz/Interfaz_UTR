@@ -39,13 +39,13 @@ class cambio_alarmas(Frame):
 		
 		num = self.lista.curselection()
 		num2 = num[0]
-		print (num2)
+		#print (num2)
 		return num2
 	
 
 	def gettext (self): # Metodo que adquiere el texto que esta en el campo de texto y lo entrega.
 		texto = self.contenido.get()
-		print ("Esto es lo que se escribio en el cuadro ----- > " + texto)
+		#print ("Esto es lo que se escribio en el cuadro ----- > " + texto)
 		return (texto)
 		
 	def vaciar (self): # Metodo que vacia el campo de texto despues de oprimir el boton

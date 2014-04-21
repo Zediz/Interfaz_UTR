@@ -26,7 +26,8 @@ class alarmas_analogas(Frame):
 		self.corriente= Label(self,text="10000000 mA")
 		self.corriente.place(x=200, y=60)
 
-	
+		self.valv = ""
+		self.valc = ""
 
 
 	def checando_analog(self): # Metodo que checa los archivos adc para ver los valores que estos tienen
@@ -45,7 +46,7 @@ class alarmas_analogas(Frame):
 		
 		while True: # El bucle que se ejecuta para que continuamente se esten revisando el contenido de los archivos
 			lock.acquire()
-			print("Se esta ejecutando el While Analogas")
+			#print("Se esta ejecutando el While Analogas")
 			time.sleep(.3)  # El tiempo entre revision y revision
 			for file in adcFiles: #Este abre los 6 archivos de los pines
 
@@ -53,17 +54,27 @@ class alarmas_analogas(Frame):
 				fd.seek(5) # Se situa en el character 5 del archivo
 				valor = fd.read() # de ahi en adelante lee el valor
 				
+
 				if conta == 3:
 					self.voltaje.config(text=valor+" V") # si esta en el pin 3 asigna el valor en la alarma analoga 1
-					
+					self.valv = valor
+					#print self.valv
 				elif conta ==4: # si esta en el pin 4 asigna el valor a la label de la alarma analoga 2
 					self.corriente.config(text=valor+" mA")
-					
+					self.valc = valor
+					#print self.valc
 				conta += 1 # aumenta conta para saber en que momento entra en el pin 3  y 4
 				fd.close() # Cierra el archivo cada vez que se termina de leer
 			conta = 0 # la variable conta la ponemos en 0 nuevamente apra que empiece a contar de nuevo
 			lock.release()
 
+	def dar_valv(self):
+		numero = self.valv
+		return numero
+	
+	def dar_valc(self):
+		numero = self.valc
+		return numero
 		
 """v0 = Tk()
 v0.config(bg = "white")
@@ -73,6 +84,8 @@ v0.geometry('700x500+290+150')
 ola = alarmas_analogas(v0)
 
 
+
 thread.start_new_thread(ola.checando_analog, ())
 
-v0.mainloop()"""
+v0.mainloop()
+#"""

@@ -48,11 +48,17 @@ class alarmas_digitales(Frame):
 		self.foco5 = Label (self, text ="          ", fg = "green", bg = "red")
 		self.foco5.place(x= 340, y= 212)
 
+		self.val1 = ""
+		self.val2 = ""
+		self.val3 = ""
+		self.val4 = ""
+		self.val5 = ""
+
 	#Aqui iba cambio del nombre de la alarma
 	def cambio (self,num,texto): # Cambio del nombre de la alarma 
 			
-			print ("Si tiene el valor " + str(num))
-			print ("Si tiene el valor " + texto)
+			#print ("Si tiene el valor " + str(num))
+			#print ("Si tiene el valor " + texto)
 			global alarma1
 
 			if num == 0:
@@ -95,10 +101,10 @@ class alarmas_digitales(Frame):
 			file.close
 
 		while True:
-			print("Se esta ejecutando el While digitales")
+			#print("Se esta ejecutando el While digitales")
 			time.sleep(.55) #.5
 			for pin in range (0,5):
-				print ("Estoy checando el gpio" + str(pin))
+				#print ("Estoy checando el gpio" + str(pin))
 				file = open(pinData[pin], 'r')
 				lock.acquire()
 				if int(file.read()) == 1:
@@ -112,27 +118,58 @@ class alarmas_digitales(Frame):
 	def set_color_red(self, num):
 		if num == 0:
 			self.foco1.config(bg = "red")
+			self.val1 = "1"
 		elif num == 1:
 			self.foco2.config(bg = "red")
+			self.val2 = "1"
 		elif num == 2:
 			self.foco3.config(bg = "red")
+			self.val3 = "1"
 		elif num == 3:
 			self.foco4.config(bg = "red")
+			self.val4 = "1"
 		elif num == 4:
 			self.foco5.config(bg = "red")
+			self.val5 = "1"
 
 
 	def set_color_green(self, num):
 		if num == 0:
 			self.foco1.config(bg = "green")
+			self.val1 = "0"
 		elif num == 1:
 			self.foco2.config(bg = "green")
+			self.val2 = "0"
 		elif num == 2:
 			self.foco3.config(bg = "green")
+			self.val3 = "0"
 		elif num == 3:
 			self.foco4.config(bg = "green")
+			self.val4 = "0"
 		elif num == 4:
 			self.foco5.config(bg = "green")
+			self.val5 = "0"
+
+	def dar_val1 (self):
+		val = self.val1
+		return val
+
+	def dar_val2 (self):
+		val = self.val2
+		return val
+
+	def dar_val3 (self):
+		val = self.val3
+		return val
+
+	def dar_val4 (self):
+		val = self.val4
+		return val
+
+	def dar_val5 (self):
+		val = self.val5
+		return val
+
 """v0 = Tk()
 v0.config(bg = "white")
 v0.title('Alarmas del Transformador')
