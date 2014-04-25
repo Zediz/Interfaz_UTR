@@ -14,6 +14,7 @@ v0.config(bg = "white")
 v0.title('Alarmas del Transformador')
 v0.geometry('700x500+290+150')
 
+lock = thread.allocate_lock()
 digi = alarmas_digitales.alarmas_digitales(v0)
 change = cambio_alarmas.cambio_alarmas(v0)
 analog = alarmas_analogas.alarmas_analogas(v0)
@@ -21,12 +22,13 @@ control = control.control(v0)
 archivos = Hora_archivos.win_archivos(v0)
 
 def cambio_de_ala (): # Este es el metodo que se ejectua al presionar el boton para cambiar la alarma
+	lock.acquire()
 	num = int(change.num_lista()) # Aqui obtengo el valor de la alarma que esta seleccionada
 	texto = change.gettext() # Aqui obtengo el texto que esta en el campo de texto
 
 	digi.cambio(num,texto) # Ejecuto el metodo cambio, que es el que cambia la alarma del frame de alarmas digitales 
 	change.vaciar() # Vacio el campo para que escriban otra alarma.
-
+	lock.release()
 
 # FRAME DE LOS PINES *********************
 pines =Frame(height = 260, width= 297, bg="black")

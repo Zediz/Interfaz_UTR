@@ -3,7 +3,9 @@
 
 from Tkinter import *
 import time, os
+import thread
 
+lock = thread.allocate_lock()
 
 estado = ""
 
@@ -51,6 +53,7 @@ class control(Frame):
 
 	def switch(self):
 		global estado
+		lock.acquire()
 		#print ("Si funciona el boton")
 		file = open('/sys/devices/virtual/misc/gpio/pin/gpio6','r+')
 		valor = int(file.read())
@@ -74,6 +77,7 @@ class control(Frame):
 			print self.dar_estado()
 			file.write("1")
 			file.close()
+		lock.release()	
 
 	def dar_estado (self):
 		val = estado

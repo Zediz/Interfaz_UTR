@@ -37,9 +37,9 @@ class alarmas_digitales(Frame):
 		flecha5 = Label (self, text =" >>>>", fg = "green", bg = "black")
 		flecha5.place(x= 280, y= 210)
 
-		self.foco1 = Label (self, text ="          ", fg = "green", bg = "red")
+		self.foco1 = Label (self, text ="          ", fg = "green", bg = "green")
 		self.foco1.place(x= 340, y= 52)
-		self.foco2 = Label (self, text ="          ", fg = "green", bg = "red")
+		self.foco2 = Label (self, text ="          ", fg = "green", bg = "green")
 		self.foco2.place(x= 340, y= 92)
 		self.foco3 = Label (self, text ="          ", fg = "green", bg = "red")
 		self.foco3.place(x= 340, y= 132)
@@ -102,17 +102,18 @@ class alarmas_digitales(Frame):
 
 		while True:
 			#print("Se esta ejecutando el While digitales")
-			time.sleep(.55) #.5
+			time.sleep(.55)
+			lock.acquire() #.5
 			for pin in range (0,5):
 				#print ("Estoy checando el gpio" + str(pin))
 				file = open(pinData[pin], 'r')
-				lock.acquire()
+				
 				if int(file.read()) == 1:
 					self.set_color_red(pin)
 				else:
 					self.set_color_green(pin)
 				file.close()
-				lock.release()
+			lock.release()	
 
 
 	def set_color_red(self, num):
