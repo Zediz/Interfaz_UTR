@@ -9,7 +9,7 @@ import alarmas_analogas
 import control
 import Hora_archivos
 
-
+lock = thread.allocate_lock()
 
 def cambio_de_ala (): # Este es el metodo que se ejectua al presionar el boton para cambiar la alarma
 	global control, digi, change, analog, archivos
