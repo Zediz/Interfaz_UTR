@@ -20,10 +20,10 @@ class alarmas_analogas(Frame):
 		analog2 = Label (self, text =" Alarma Analoga 2", fg = "green", bg = "black")
 		analog2.place(x= 15, y= 60)
 
-		self.voltaje = Label(self,text="100000 v")
+		self.voltaje = Label(self,text="")
 		self.voltaje.place(x=200, y=30)
 
-		self.corriente= Label(self,text="10000000 mA")
+		self.corriente= Label(self,text="")
 		self.corriente.place(x=200, y=60)
 
 		self.valv = ""
@@ -51,7 +51,7 @@ class alarmas_analogas(Frame):
 			for file in adcFiles: #Este abre los 6 archivos de los pines
 
 				fd = open(file,'r') # se abre el archivo
-				fd.seek(5) # Se situa en el character 5 del archivo
+				fd.seek(0) # Se situa en el character 5 del archivo
 				valor = fd.read() # de ahi en adelante lee el valor
 				
 
