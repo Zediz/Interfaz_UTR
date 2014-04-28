@@ -26,7 +26,7 @@ class alarmas_analogas(Frame):
 		self.valv = ""
 		self.valc = ""
 
-	def checando_analog(self): # Metodo que checa los archivos adc para ver los valores que estos tienen
+		def checando_analog(self): # Metodo que checa los archivos adc para ver los valores que estos tienen
 		global lock
 		
 		while True: # El bucle que se ejecuta para que continuamente se esten revisando el contenido de los archivos
@@ -34,18 +34,8 @@ class alarmas_analogas(Frame):
 			#print("Se esta ejecutando el While Analogas")
 			time.sleep(.3)  # El tiempo entre revision y revision
 			file = open('/proc/adc3','r')
-			valor = file.read()
-			self.voltaje.config(text=valor)
-			self.valv=valor
-			file.close()
-			file2 = open ('/proc/adc4','r')
-			valor2= file2.read()
-			self.valc = valor2
-			self.corriente.config(text = valor2)
-			file2.close()
-			valor = ""
-			valor2 =""
-			 # de ahi en adelante lee el valor
+			print file.read()
+			file.close() # de ahi en adelante lee el valor
 			lock.release()
 
 	def dar_valv(self):
