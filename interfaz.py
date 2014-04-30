@@ -5,14 +5,13 @@ from Tkinter import *
 import thread
 import cambio_alarmas
 import alarmas_digitales
-import alarmas_analogas
 import control
 import Hora_archivos
 
 lock = thread.allocate_lock()
 
 def cambio_de_ala (): # Este es el metodo que se ejectua al presionar el boton para cambiar la alarma
-	global control, digi, change, analog, archivos
+	global control, digi, change, archivos
 	lock.acquire()
 	num = int(change.num_lista()) # Aqui obtengo el valor de la alarma que esta seleccionada
 	texto = change.gettext() # Aqui obtengo el texto que esta en el campo de texto
@@ -23,7 +22,7 @@ def cambio_de_ala (): # Este es el metodo que se ejectua al presionar el boton p
 
 # FRAME DE LOS PINES *********************
 def shido ():
-	global control, digi, change, analog, archivos
+	global control, digi, change, archivos
 
 	v0 = Tk()
 	v0.config(bg = "white")
@@ -34,12 +33,14 @@ def shido ():
 
 	digi = alarmas_digitales.alarmas_digitales(v0)
 	change = cambio_alarmas.cambio_alarmas(v0)
-	analog = alarmas_analogas.alarmas_analogas(v0)
 	control = control.control(v0)
 	archivos = Hora_archivos.win_archivos(v0)
 
 	pines =Frame(height = 260, width= 297, bg="black")
 	pines.place(x = 402, y = 172)
+
+	analogas = Frame(height=116, width=400, bg= "black")
+	analogas.place (x=1,y=282)
 	#***************************************************************
 
 	boton = Button(change, text="Aceptar" ,command = lambda : cambio_de_ala() ) # El boton que lo situo en el frame de cambio de alarma y ejecuta 
@@ -49,9 +50,8 @@ def shido ():
 	bguardar.place(x=200, y = 35)
 	archivos.tick ()
 
-	thread.start_new_thread(digi.checando, ()) # Un metodo que se ejecuta al mismo tiempo que el de abajo 
-	thread.start_new_thread(analog.checando_analog, ()) # El otro metdo que se ejecuta con el de arriba 
-	thread.start_new_thread(archivos.guardando, (digi.dar_val1, digi.dar_val2, digi.dar_val3, digi.dar_val4, digi.dar_val5, analog.dar_valv, analog.dar_valc, control.dar_estado))
+	thread.start_new_thread(digi.checando, ()) # Un metodo que se ejecuta al mismo tiempo que el de abajo  # El otro metdo que se ejecuta con el de arriba 
+	thread.start_new_thread(archivos.guardando, (digi.dar_val1, digi.dar_val2, digi.dar_val3, digi.dar_val4, digi.dar_val5, control.dar_estado))
 
 	print control.dar_estado()
 

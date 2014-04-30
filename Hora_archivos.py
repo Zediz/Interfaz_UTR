@@ -36,7 +36,7 @@ class win_archivos(Frame):
 
 	#Aqui iba cambio del nombre de la alarma	
 
-	def guardando(self, val1,val2,val3,val4,val5,valanalog1,valanalog2,valswitch):
+	def guardando(self, val1,val2,val3,val4,val5,valswitch):
 		global lock, salir 
 		
 	
@@ -52,12 +52,12 @@ class win_archivos(Frame):
 				print time.strftime("%H" +":"+ "%M" +":"+  "%S")
 	 			lock.acquire()
 		 		archi = open(nombre, 'a')
-		 		archi.write(str(time.strftime("%H" +":"+ "%M" +":"+  "%S")) + "\t\t" +  val1() +"\t\t" + val2() + "\t\t" + val3() + "\t\t" + val4() + "\t\t" + val5() + "\t\t   "+ valanalog1() + "\t\t\t   " + valanalog2()+ "\t\t  "+ valswitch() + "\n")
+		 		archi.write(str(time.strftime("%H" +":"+ "%M" +":"+  "%S")) + "\t\t" +  val1() +"\t\t" + val2() + "\t\t" + val3() + "\t\t" + val4() + "\t\t" + val5() + "\t\t   "+ "\t\t  "+ valswitch() + "\n")
 		 		archi.close()
 		 		lock.release()
 		 		print(num)
 				num +=1
-		 		time.sleep(1)
+		 		time.sleep(.01)
 		 	self.salir = 0
 
 
