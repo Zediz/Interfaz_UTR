@@ -50,7 +50,7 @@ class win_archivos(Frame):
 		
 		while True:
 
-			if valor1 + valor2 + valor3 + valor4 + valor5 + valorswitch != val1 + val2 + val3 + val4 + val5 + valswitch:
+			if valor1 + valor2 + valor3 + valor4 + valor5 + valorswitch != val1() + val2() + val3() + val4() + val5() + valswitch():
 				valor1 = val1
 				valor2 = val2
 				valor3 = val3
@@ -66,7 +66,7 @@ class win_archivos(Frame):
 					print time.strftime("%H" +":"+ "%M" +":"+  "%S")
 		 			lock.acquire()
 			 		archi = open(nombre, 'a')
-			 		archi.write(str(time.strftime("%H" +":"+ "%M" +":"+  "%S")) + "\t\t" +  val1() +"\t\t" + val2() + "\t\t" + val3() + "\t\t" + val4() + "\t\t" + val5() + "\t\t   "+ "\t\t  "+ valswitch() + "\n")
+			 		archi.write(str(time.strftime("%H" +":"+ "%M" +":"+  "%S")) + "\t\t" +  valor1 +"\t\t" + valor2 + "\t\t" + valor3 + "\t\t" + valor4 + "\t\t" + valor5 + "\t\t   "+ "\t\t  "+ valorswitch + "\n")
 			 		archi.close()
 			 		lock.release()
 			 		print(num)
