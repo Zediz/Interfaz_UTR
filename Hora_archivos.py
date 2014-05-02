@@ -37,7 +37,7 @@ class win_archivos(Frame):
 	#Aqui iba cambio del nombre de la alarma	
 
 	def guardando(self, val1,val2,val3,val4,val5,valswitch):
-		global lock, salir 
+		global lock, salir, valor1, valor2, valor3,valor4,valor5, valorswitch 
 		
 		valor1 = ""
 		valor2 = ""
@@ -49,7 +49,11 @@ class win_archivos(Frame):
 		num = 0
 		
 		while True:
-
+			
+			archi = self.archivo()
+			nombre = archi.get_name()
+			print "entre al While1"
+			while self.salir == 0:
 				valor11 = val1()
 				valor22 = val2()
 				valor33 = val3()
@@ -57,32 +61,29 @@ class win_archivos(Frame):
 				valor55 = val5()
 				valorss = valswitch()
 
-			if valor1 + valor2 + valor3 + valor4 + valor5 + valorswitch != valor11 + valor22 + valor33 + valor44 + valor55 + valorss:
-				valor1 = valor11
-				valor2 = valor22
-				valor3 = valor33
-				valor4 = valor44
-				valor5 = valor55
-				valorswitch = valorss
-			
-				archi = self.archivo()
-				nombre = archi.get_name()
-				print "entre al While1"
-				while self.salir == 0:
-					print "entre al while 2"
+				if valor1 + valor2 + valor3 + valor4 + valor5 + valorswitch != valor11 + valor22 + valor33 + valor44 + valor55 + valorss:
+					valor1 = valor11
+					valor2 = valor22
+					valor3 = valor33
+					valor4 = valor44
+					valor5 = valor55
+					valorswitch = valorss
+
+					print "si eran diferentes"
 					print time.strftime("%H" +":"+ "%M" +":"+  "%S")
-		 			lock.acquire()
+					lock.acquire()
 			 		archi = open(nombre, 'a')
-			 		archi.write(str(time.strftime("%H" +":"+ "%M" +":"+  "%S")) + "\t\t" +  valor1 +"\t\t" + valor2 + "\t\t" + valor3 + "\t\t" + valor4 + "\t\t" + valor5 + "\t\t   "+ "\t\t  "+ valorswitch + "\n")
-			 		archi.close()
+			 		archi.write(str(time.strftime("%H" +":"+ "%M" +":"+  "%S")) + "\t\t" + valor1 +"\t\t" + valor2 + "\t\t" + valor3 + "\t\t" + valor4 + "\t\t" + valor5 + "\t\t   "+ "\t\t  "+ valorswitch + "\n")
+					archi.close()
 			 		lock.release()
 			 		print(num)
-					num +=1
-			 		time.sleep(1)
-			 	self.salir = 0
-			else :
-				print "no era igual"
-				time.sleep(1)
+
+			 	else:
+			 		print ("Eran el mismo")
+
+				num +=1
+		 		time.sleep(1)
+		 	self.salir = 0
 
 
 			
