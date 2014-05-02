@@ -51,12 +51,12 @@ class win_archivos(Frame):
 		while True:
 
 			if valor1 + valor2 + valor3 + valor4 + valor5 + valorswitch != val1() + val2() + val3() + val4() + val5() + valswitch():
-				valor1 = val1
-				valor2 = val2
-				valor3 = val3
-				valor4 = val4
-				valor5 = val5
-				valorswitch = valswitch
+				valor1 = val1()
+				valor2 = val2()
+				valor3 = val3()
+				valor4 = val4()
+				valor5 = val5()
+				valorswitch = valswitch()
 			
 				archi = self.archivo()
 				nombre = archi.get_name()
