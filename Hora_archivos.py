@@ -50,13 +50,20 @@ class win_archivos(Frame):
 		
 		while True:
 
-			if valor1 + valor2 + valor3 + valor4 + valor5 + valorswitch == val1() + val2() + val3() + val4() + val5() + valswitch():
-				valor1 = val1()
-				valor2 = val2()
-				valor3 = val3()
-				valor4 = val4()
-				valor5 = val5()
-				valorswitch = valswitch()
+				valor11 = val1()
+				valor22 = val2()
+				valor33 = val3()
+				valor44 = val4()
+				valor55 = val5()
+				valorss = valswitch()
+
+			if valor1 + valor2 + valor3 + valor4 + valor5 + valorswitch != valor11 + valor22 + valor33 + valor44 + valor55 + valorss:
+				valor1 = valor11
+				valor2 = valor22
+				valor3 = valor33
+				valor4 = valor44
+				valor5 = valor55
+				valorswitch = valorss
 			
 				archi = self.archivo()
 				nombre = archi.get_name()
@@ -71,11 +78,11 @@ class win_archivos(Frame):
 			 		lock.release()
 			 		print(num)
 					num +=1
-			 		time.sleep(.01)
+			 		time.sleep(1)
 			 	self.salir = 0
 			else :
 				print "no era igual"
-				time.sleep(.01)
+				time.sleep(1)
 
 
 			
