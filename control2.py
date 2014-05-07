@@ -84,7 +84,7 @@ class control(Frame):
 		return val
 
 
-"""v0 = Tk()
+v0 = Tk()
 v0.config(bg = "white")
 v0.title('Alarmas del Transformador')
 v0.geometry('700x500+290+150')

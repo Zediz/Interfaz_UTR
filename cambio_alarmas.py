@@ -8,16 +8,16 @@ class cambio_alarmas(Frame):
 		Frame.__init__(self, master,height=170, width=297, bg= "black")
 		self.place(x=402,y=1)
 
-		titulo = Label(self,  font=('eurostile', 14), text="Cambio de Nombre de las alarmas", fg= "green", bg ="black")
+		titulo = Label(self,   text="Cambio de Nombre de las alarmas", fg= "green", bg ="black")
 		titulo.place(x=40, y=1)
 
-		paso1 = Label(self, font=('eurostile', 14), text="1.- Seleccione una alarma -->", fg ="green", bg= "black")
+		paso1 = Label(self,  text="1.- Seleccione una alarma -->", fg ="green", bg= "black")
 		paso1.place(x=1, y=50)
 
-		paso2 = Label(self, font=('eurostile', 14), text ="2.- Escriba el texto y de click en aceptar", fg="green", bg="black")
+		paso2 = Label(self,  text ="2.- Escriba el texto y de click en aceptar", fg="green", bg="black")
 		paso2.place(x=1,y=115)
 
-		self.lista = Listbox(self, font=('eurostile', 14),  height=5, width=9)
+		self.lista = Listbox(self,   height=5, width=9)
 		self.lista.insert(1, "  Alarma 1")
 		self.lista.insert(2, "  Alarma 2")
 		self.lista.insert(3, "  Alarma 3")

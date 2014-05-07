@@ -55,9 +55,9 @@ file = PhotoImage(file="umlogo.gif")
 um.create_image(205,40, image =file)
 
 var = StringVar()
-l = Label(root, font=('eurostile', 15), text = "Bienvenido Hiram... \n Introduce tu Password", bg="black", fg = "gray", bd=0, relief='flat', cursor='hand2')
+l = Label(root,  text = "Bienvenido Hiram... \n Introduce tu Password", bg="black", fg = "gray", bd=0, relief='flat', cursor='hand2')
 l.place(x=5, y=103)
-a = Entry(root, font=('eurostile', 15), show = '●', bg='#D7DAED', bd=0, relief='flat', cursor='xterm', highlightcolor='red', textvariable = var)  # show = '*'
+a = Entry(root,  show = '●', bg='#D7DAED', bd=0, relief='flat', cursor='xterm', highlightcolor='red', textvariable = var)  # show = '*'
 a.place(x=5, y =150)
 a.bind("<Return>", check)
 a.focus()

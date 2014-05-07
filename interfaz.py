@@ -43,10 +43,10 @@ def shido ():
 	analogas.place (x=402,y=399)
 	#***************************************************************
 
-	boton = Button(change, font=('eurostile', 14), text="Aceptar" ,command = lambda : cambio_de_ala() ) # El boton que lo situo en el frame de cambio de alarma y ejecuta 
+	boton = Button(change,  text="Aceptar" ,command = lambda : cambio_de_ala() ) # El boton que lo situo en el frame de cambio de alarma y ejecuta 
 	boton.place(x=210,y=140) # el metodo de cambio de la alarma
 
-	bguardar = Button(archivos, font=('eurostile', 14), text = "Guardar", command = lambda : archivos.salida())
+	bguardar = Button(archivos,  text = "Guardar", command = lambda : archivos.salida())
 	bguardar.place(x=300, y = 35)
 	archivos.tick ()
 

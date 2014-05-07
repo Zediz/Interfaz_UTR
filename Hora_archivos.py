@@ -16,13 +16,13 @@ class win_archivos(Frame):
 
 		self.fecha = datetime.today()
 		self.time1 = '' 
-		self.clock = Label(self, font=('eurostile', 15), bg='black', fg='green', bd=0) 
+		self.clock = Label(self,  bg='black', fg='green', bd=0) 
 		self.clock.place(x=320, y=80)
 
-		self.date = Label (self, font=('eurostile', 15), bg = "black", fg ="green", text= self.fecha.strftime("%d %b %Y ") )
+		self.date = Label (self,  bg = "black", fg ="green", text= self.fecha.strftime("%d %b %Y ") )
 		self.date.place(x=220, y=78)
 
-		self.l1 = Label (self, font=('eurostile', 20), text= "Guarda un nuevo archivo", fg = "green", bg= "black")
+		self.l1 = Label (self,  text= "Guarda un nuevo archivo", fg = "green", bg= "black")
 		self.l1.place(x=15, y = 35)
 
 		self.salir = 0

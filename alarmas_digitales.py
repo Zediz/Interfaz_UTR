@@ -12,18 +12,18 @@ class alarmas_digitales(Frame):
 		Frame.__init__(self, master,height=280, width=400 ,bg="black")
 		self.place(x=1, y=1)
 
-		titulo = Label (self, font=('eurostile', 16), text= "Alarmas Digitales", fg ="green", bg= "black")
+		titulo = Label (self, text= "Alarmas Digitales", fg ="green", bg= "black")
 		titulo.place(x= 130, y= 1)
 
-		self.alarma1 = Label (self, font=('eurostile', 16), text =" Alarma 1", fg = "green", bg = "black")
+		self.alarma1 = Label (self,  text =" Alarma 1", fg = "green", bg = "black")
 		self.alarma1.place(x= 15, y= 50)
-		self.alarma2 = Label (self, font=('eurostile', 16), text =" Alarma 2", fg = "green", bg = "black")
+		self.alarma2 = Label (self,  text =" Alarma 2", fg = "green", bg = "black")
 		self.alarma2.place(x= 15, y= 90)
-		self.alarma3 = Label (self, font=('eurostile', 16), text =" Alarma 3", fg = "green", bg = "black")
+		self.alarma3 = Label (self,  text =" Alarma 3", fg = "green", bg = "black")
 		self.alarma3.place(x= 15, y= 130)
-		self.alarma4 = Label (self, font=('eurostile', 16), text =" Alarma 4", fg = "green", bg = "black")
+		self.alarma4 = Label (self,  text =" Alarma 4", fg = "green", bg = "black")
 		self.alarma4.place(x= 15, y= 170)
-		self.alarma5 = Label (self, font=('eurostile', 16), text =" Alarma 5", fg = "green", bg = "black")
+		self.alarma5 = Label (self,  text =" Alarma 5", fg = "green", bg = "black")
 		self.alarma5.place(x= 15, y= 210)
 
 		flecha1 = Label (self, text =" >>>>", fg = "green", bg = "black")
@@ -102,7 +102,7 @@ class alarmas_digitales(Frame):
 
 		while True:
 			#print("Se esta ejecutando el While digitales")
-			time.sleep(.55)
+			time.sleep(.1)
 			lock.acquire() #.5
 			for pin in range (0,5):
 				#print ("Estoy checando el gpio" + str(pin))
