@@ -12,7 +12,7 @@ def check(Event = None):
     if str(var.get()) != "Sh0ck123":  # hash for password
         o = root.geometry()
         l['text'] = 'Password Equivocada\nSi introduces otra password incorrecta puedes ser reportado'
-        l.config(fg='red', bg = "black")
+        l.config(font=('eurostile', 14), fg='red', bg = "black")
         for times in range(50): 
                  root.geometry("+%d+%d" %(int(root.geometry().split("+")[1])+randint(-69, 69), int(root.geometry().split("+")[2])+randint(-69, 69)))
                  root.update()
@@ -55,9 +55,9 @@ file = PhotoImage(file="umlogo.gif")
 um.create_image(205,40, image =file)
 
 var = StringVar()
-l = Label(root, text = "Bienvenido Hiram... \n Introduce tu Password", font=('ubuntu', 15), bg="black", fg = "gray", bd=0, relief='flat', cursor='hand2')
+l = Label(root, font=('eurostile', 15), text = "Bienvenido Hiram... \n Introduce tu Password", bg="black", fg = "gray", bd=0, relief='flat', cursor='hand2')
 l.place(x=5, y=103)
-a = Entry(root, font=('ubuntu', 12, 'bold'), show = '●', bg='#D7DAED', bd=0, relief='flat', cursor='xterm', highlightcolor='red', textvariable = var)  # show = '*'
+a = Entry(root, font=('eurostile', 15), show = '●', bg='#D7DAED', bd=0, relief='flat', cursor='xterm', highlightcolor='red', textvariable = var)  # show = '*'
 a.place(x=5, y =150)
 a.bind("<Return>", check)
 a.focus()

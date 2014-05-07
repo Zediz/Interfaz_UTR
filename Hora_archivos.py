@@ -11,19 +11,19 @@ lock = thread.allocate_lock()
 
 class win_archivos(Frame):
 	def __init__(self, master):
-		Frame.__init__(self, master,height=100, width=297 ,bg="black")
-		self.place(x=402, y=399)
+		Frame.__init__(self, master,height=100, width=400 ,bg="black")
+		self.place(x=1, y=399)
 
 		self.fecha = datetime.today()
 		self.time1 = '' 
-		self.clock = Label(self, font=('ubuntu', 10, 'bold'), bg='black', fg='green', bd=0) 
-		self.clock.place(x=200, y=85)
+		self.clock = Label(self, font=('eurostile', 15), bg='black', fg='green', bd=0) 
+		self.clock.place(x=320, y=80)
 
-		self.date = Label (self, bg = "black", fg ="green", text= self.fecha.strftime("%d %b %Y ") )
-		self.date.place(x=1, y=80)
+		self.date = Label (self, font=('eurostile', 15), bg = "black", fg ="green", text= self.fecha.strftime("%d %b %Y ") )
+		self.date.place(x=220, y=78)
 
-		self.l1 = Label (self, text= "Guarda un nuevo archivo", fg = "green", bg= "black")
-		self.l1.place(x=1, y = 35)
+		self.l1 = Label (self, font=('eurostile', 20), text= "Guarda un nuevo archivo", fg = "green", bg= "black")
+		self.l1.place(x=15, y = 35)
 
 		self.salir = 0
 

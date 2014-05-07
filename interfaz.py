@@ -26,7 +26,7 @@ def shido ():
 
 	v0 = Tk()
 	v0.config(bg = "white")
-	v0.title('Alarmas del Transformador')
+	v0.title('IDU-UM v1.20')
 	v0.geometry('700x500+290+150')
 
 	lock = thread.allocate_lock()
@@ -39,15 +39,15 @@ def shido ():
 	pines =Frame(height = 260, width= 297, bg="black")
 	pines.place(x = 402, y = 172)
 
-	analogas = Frame(height=116, width=400, bg= "black")
-	analogas.place (x=1,y=282)
+	analogas = Frame(height=100, width=297, bg= "black")
+	analogas.place (x=402,y=399)
 	#***************************************************************
 
-	boton = Button(change, text="Aceptar" ,command = lambda : cambio_de_ala() ) # El boton que lo situo en el frame de cambio de alarma y ejecuta 
+	boton = Button(change, font=('eurostile', 14), text="Aceptar" ,command = lambda : cambio_de_ala() ) # El boton que lo situo en el frame de cambio de alarma y ejecuta 
 	boton.place(x=210,y=140) # el metodo de cambio de la alarma
 
-	bguardar = Button(archivos, text = "Guardar", command = lambda : archivos.salida())
-	bguardar.place(x=200, y = 35)
+	bguardar = Button(archivos, font=('eurostile', 14), text = "Guardar", command = lambda : archivos.salida())
+	bguardar.place(x=300, y = 35)
 	archivos.tick ()
 
 	thread.start_new_thread(digi.checando, ()) # Un metodo que se ejecuta al mismo tiempo que el de abajo  # El otro metdo que se ejecuta con el de arriba 

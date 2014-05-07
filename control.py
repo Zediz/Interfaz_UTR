@@ -12,16 +12,16 @@ estado = ""
 class control(Frame):
 
 	def __init__(self, master):
-		Frame.__init__(self, master,height=100, width=400, bg= "black")
-		self.place(x=1,y=399)
+		Frame.__init__(self, master,height=116, width=400, bg= "black")
+		self.place(x=1,y=282)
 
-		self.l1 = Label (self, text = "", bg="black", fg = "green")
+		self.l1 = Label (self, font=('eurostile', 17), text = "", bg="black", fg = "green")
 		self.l1.place (x=15, y=40)
 
-		self.b1 = Button(self, text= "Switch", command = lambda: self.switch())
+		self.b1 = Button(self, font=('eurostile', 14), text= "Switch", command = lambda: self.switch())
 		self.b1.place(x=300, y =37)
 
-		self.foco= Label(self, text = "          ", bg = "red")
+		self.foco= Label(self, font=('eurostile', 17), text = "          ", bg = "red")
 		self.foco.place(x=200, y = 40)
 		self.start()
 
