@@ -41,11 +41,11 @@ class alarmas_digitales(Frame):
 		self.foco1.place(x= 340, y= 52)
 		self.foco2 = Label (self, text ="          ", fg = "green", bg = "green")
 		self.foco2.place(x= 340, y= 92)
-		self.foco3 = Label (self, text ="          ", fg = "green", bg = "red")
+		self.foco3 = Label (self, text ="          ", fg = "green", bg = "green")
 		self.foco3.place(x= 340, y= 132)
-		self.foco4 = Label (self, text ="          ", fg = "green", bg = "red")
+		self.foco4 = Label (self, text ="          ", fg = "green", bg = "green")
 		self.foco4.place(x= 340, y= 172)
-		self.foco5 = Label (self, text ="          ", fg = "green", bg = "red")
+		self.foco5 = Label (self, text ="          ", fg = "green", bg = "green")
 		self.foco5.place(x= 340, y= 212)
 
 		self.val1 = ""
@@ -102,7 +102,7 @@ class alarmas_digitales(Frame):
 
 		while True:
 			#print("Se esta ejecutando el While digitales")
-			time.sleep(.1)
+			time.sleep(.05)
 			lock.acquire() #.5
 			for pin in range (0,5):
 				#print ("Estoy checando el gpio" + str(pin))
@@ -118,24 +118,6 @@ class alarmas_digitales(Frame):
 
 	def set_color_red(self, num):
 		if num == 0:
-			self.foco1.config(bg = "red")
-			self.val1 = "1"
-		elif num == 1:
-			self.foco2.config(bg = "red")
-			self.val2 = "1"
-		elif num == 2:
-			self.foco3.config(bg = "red")
-			self.val3 = "1"
-		elif num == 3:
-			self.foco4.config(bg = "red")
-			self.val4 = "1"
-		elif num == 4:
-			self.foco5.config(bg = "red")
-			self.val5 = "1"
-
-
-	def set_color_green(self, num):
-		if num == 0:
 			self.foco1.config(bg = "green")
 			self.val1 = "0"
 		elif num == 1:
@@ -150,6 +132,24 @@ class alarmas_digitales(Frame):
 		elif num == 4:
 			self.foco5.config(bg = "green")
 			self.val5 = "0"
+
+
+	def set_color_green(self, num):
+		if num == 0:
+			self.foco1.config(bg = "red")
+			self.val1 = "1"
+		elif num == 1:
+			self.foco2.config(bg = "red")
+			self.val2 = "1"
+		elif num == 2:
+			self.foco3.config(bg = "red")
+			self.val3 = "1"
+		elif num == 3:
+			self.foco4.config(bg = "red")
+			self.val4 = "1"
+		elif num == 4:
+			self.foco5.config(bg = "red")
+			self.val5 = "1"
 
 	def dar_val1 (self):
 		val = self.val1

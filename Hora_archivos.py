@@ -82,7 +82,7 @@ class win_archivos(Frame):
 			 		print ("Eran el mismo")
 
 				num +=1
-		 		time.sleep(1)
+		 		time.sleep(.02)
 		 	self.salir = 0
 
 
